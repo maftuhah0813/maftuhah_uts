@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#daftar-produk, #keranjang {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid hsl(266, 100%, 40%);
+}
+
+button {
+    background-color: #4e2ebe;
+    color: rgba(116, 97, 226, 0.952);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
