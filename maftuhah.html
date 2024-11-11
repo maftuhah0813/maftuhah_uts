@@ -5,6 +5,11 @@
     <title>Sistem Kasir Sederhana</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    h1 , h2 , h3 {
+        color: white;
+    }
+</style>
 <body>
     <h1>Sistem Kasir</h1>
     <div id="daftar-produk">
@@ -13,9 +18,18 @@
     <div id="kerajang">
         <h2>Keranjang</h2>
         <div id="item-keranjang"></div>
-        <p>Total: Rp <span id="total">0.00</span></p>
-        <button onclick="checkout()">Bayar</button>
+        <h3>Total Belanja: <span id="total"></span></h3>
+
+        <label for="pembayaran">Metode Pembayaran:</label>
+        <select id="pembayaran">
+            <option value="Tunai">Tunai</option>
+            <option value="Kartu Kredit">Kartu Kredit</option>
+        </select>
+        <button type="button" onclick="selesaikanTransaksi()">Selesaikan Transaksi</button>
+
     </div>
-    <script src="script.js"></script>
+
+    <script src="maftuhah.js"></script>
+    <php src="maftuhah.php"></php>
 </body>
 </html>

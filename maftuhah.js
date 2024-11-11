@@ -1,8 +1,8 @@
 // Daftar produk
 let produk = [
-    { id: 1, nama: 'Produk 1', harga: 5000 },
-    { id: 2, nama: 'Produk 2', harga: 3500 },
-    { id: 3, nama: 'Produk 3', harga: 7000 }
+    { id: 1, nama: 'Gamis ', harga: 250000 },
+    { id: 2, nama: 'kebaya ', harga: 200000 },
+    { id: 3, nama: 'bluzzer ', harga: 195000 },
 ];
 let keranjang = [];
 
@@ -58,6 +58,7 @@ function checkout() {
         alert(data);
         keranjang = [];
         perbaruiKeranjang();
+        selesaikanTransaksi = [];
     });
 }
 
