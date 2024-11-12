@@ -1,13 +1,13 @@
 body {
     font-family: Arial, sans-serif;
-    background-image : url(https://image1ws.indotrading.com/s3/productimages/webp/co239549/p1277482/w600-h600/a744b623-38d6-4ccd-9d1c-3b4b43d4357d.jpg);
+    background-image : url(https://s.alicdn.com/@sc04/kf/H662127df11cd4081b36d4d3a245167ceu.jpg_720x720q50.jpg);
 
 }
 
-#daftar-produk, #keranjang {
+#daftar-produk, #keranjang{
     margin: 20px;
     padding: 10px;
-    border: 1px solid hsl(0, 0%, 100%);
+    border: 1px solid hwb(0 100% 0%);
 }
 
 button {

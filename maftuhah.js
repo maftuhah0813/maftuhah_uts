@@ -1,8 +1,11 @@
 // Daftar produk
 let produk = [
-    { id: 1, nama: 'Gamis ', harga: 250000 },
-    { id: 2, nama: 'kebaya ', harga: 200000 },
-    { id: 3, nama: 'bluzzer ', harga: 195000 },
+    { id: 1, nama: 'Gamis ', harga: 250.000 },
+    { id: 2, nama: 'Kebaya ', harga: 200.000 },
+    { id: 3, nama: 'Blazer ', harga: 195.000 },
+    { id: 1, nama: 'baju batik ', harga: 100.000 },
+    { id: 2, nama: 'hijab turkey ', harga: 150.000 },
+    { id: 3, nama: 'sepatu ', harga: 355.000 },
 ];
 let keranjang = [];
 
@@ -58,8 +61,46 @@ function checkout() {
         alert(data);
         keranjang = [];
         perbaruiKeranjang();
-        selesaikanTransaksi = [];
     });
 }
 
+// Fungsi menyimpan transaksi
+function simpanTransaksi() {
+    const total = document.getElementById('total').innerText;
+    const daftarProduk = keranjang.map(item => item.nama).join(',');
+
+    fetch('simpan_transaksi.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `produk=${daftarProduk}&total=${total}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); // Pesan konfirmasi dari server
+        keranjang = []; // Kosongkan keranjang setelah disimpan
+        perbaruiKeranjang();
+        tampilkanTransaksi(); // Tampilkan daftar transaksi setelah disimpan
+    });
+}
+
+// Fungsi menampilkan transaksi
+function tampilkanTransaksi() {
+    fetch('ambil_transaksi.php')
+    .then(response => response.json())
+    .then(data => {
+        const daftarTransaksi = document.getElementById('daftar-transaksi');
+        daftarTransaksi.innerHTML = ''; // Kosongkan daftar transaksi sebelum diperbarui
+
+        data.forEach(transaksi => {
+            daftarTransaksi.innerHTML += `<p>Produk: ${transaksi.produk} | Total: Rp${transaksi.total} | Tanggal: ${transaksi.tanggal}</p>`;
+        });
+    });
+}
+function showTransactionMessage() {
+    const messageElement = document.getElementById("message");
+    messageElement.textContent = "Selamat!! Transaksi anda sedang diproses";
+}
+
+// Panggil fungsi saat halaman dimuat
+window.onload = tampilkanTransaksi;
 tampilkanProduk();
